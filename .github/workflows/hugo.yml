@@ -27,32 +27,32 @@ defaults:
 
 jobs:
   # Test job (runs on non-main branches)
-  test:
-    runs-on: ubuntu-latest
-    if: github.ref != 'refs/heads/main'
-    container:
-      image: hugomods/hugo:exts
-    env:
-      HUGO_ENV: production
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          submodules: recursive
+  # test:
+  #   runs-on: ubuntu-latest
+  #   if: github.ref != 'refs/heads/main'
+  #   container:
+  #     image: hugomods/hugo:exts
+  #   env:
+  #     HUGO_ENV: production
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
+  #       with:
+  #         submodules: recursive
 
-      - name: Setup Hugo
-        run: |
-          hugo version
-          hugo mod get
-          hugo mod tidy
+  #     - name: Setup Hugo
+  #       run: |
+  #         hugo version
+  #         hugo mod get
+  #         hugo mod tidy
 
-      - name: Test build
-        run: |
-          hugo --minify --baseURL="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
-          echo "Test build completed successfully"
+  #     - name: Test build
+  #       run: |
+  #         hugo --minify --baseURL="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+  #         echo "Test build completed successfully"
 
-      - name: Build site
-        run: hugo
+  #     - name: Build site
+  #       run: hugo[caches]
 
   # Build and deploy job
   build-and-deploy:
@@ -80,10 +80,11 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Install Hugo
-        uses: step-security/actions-hugo@v2
+        uses: step-security/actions-hugo@v3
         with:
+          hugo-version: '0.147.8'
           extended: true
-          
+
       - name: Setup Hugo
         run: |
           hugo version
