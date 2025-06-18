@@ -58,12 +58,12 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
-    container:
-      image: hugomods/hugo:exts
+    # container:
+    #   image: hugomods/hugo:exts
     # Set default shell to 'sh' for Alpine-based containers
-    defaults:
-      run:
-        shell: sh -e -o pipefail {0}
+    # defaults:
+    #   run:
+    #     shell: sh -e -o pipefail {0}
     env:
       HUGO_ENV: production
     environment:
