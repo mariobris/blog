@@ -6,7 +6,7 @@ menu:
   main:
     parent: "articles"
 cover:
-  image: "/images/operator-sdk/k8s-galleon.jpg"
+  image: "/blog/images/operator-sdk/k8s-galleon.jpg"
   relative: true
   hiddenInList: true
 draft: false

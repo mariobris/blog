@@ -21,7 +21,8 @@ theme = "github.com/adityatelange/hugo-PaperMod"
 [menu]
   [[menu.main]]
     name = "Introduction"
-    pageRef = "/introduction/"
+    # pageRef = "/introduction/"
+    url = "/"
     weight = 1
   [[menu.main]]
     name = "Articles"

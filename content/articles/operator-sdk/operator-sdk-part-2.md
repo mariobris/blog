@@ -6,7 +6,7 @@ menu:
   main:
     parent: "articles"
 cover:
-  image: "/images/operator-sdk/k8s-galleon.jpg"
+  image: "/blog/images/operator-sdk/k8s-galleon.jpg"
   relative: true
   hiddenInList: true
 draft: false
@@ -139,7 +139,7 @@ Open the generated `api/v1alpha1/magicaloperator_types.go` and `config/samples/w
 
 **Example:**
 <p align="center">
-  <img src="/images/operator-sdk/api-types.png" alt="CRD definition" />
+  <img src="/blog/images/operator-sdk/api-types.png" alt="CRD definition" />
 </p>
 
 The CRD is defined by creating a `MagicalOperator` struct in Go. Note the `+kubebuilder` comments (<a href="https://book.kubebuilder.io/reference/markers.html" target="_blank" rel="noopener noreferrer" style="color:blue;">Kubebuilder markers</a>) — they are crucial for generating the proper CRD format.
