@@ -60,6 +60,10 @@ jobs:
     if: github.ref == 'refs/heads/main'
     container:
       image: hugomods/hugo:exts
+    # Set default shell to 'sh' for Alpine-based containers
+    defaults:
+      run:
+        shell: sh --noprofile --norc -e -o pipefail {0}
     env:
       HUGO_ENV: production
     environment:
@@ -79,9 +83,6 @@ jobs:
         run: |
           hugo version
           hugo mod get -u
-          # cat go.mod
-          # cat go.sum
-          # ls -la
 
       - name: Build with Hugo
         run: |
