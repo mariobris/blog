@@ -63,7 +63,7 @@ jobs:
     # Set default shell to 'sh' for Alpine-based containers
     defaults:
       run:
-        shell: sh --noprofile --norc -e -o pipefail {0}
+        shell: sh -e -o pipefail {0}
     env:
       HUGO_ENV: production
     environment:
