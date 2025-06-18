@@ -1,0 +1,38 @@
+baseURL = "$CI_PAGES_URL"
+languageCode = "en-us"
+title = "The Practical Engineer"
+theme = "github.com/adityatelange/hugo-PaperMod"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[params]
+  ShowReadingTime = true
+  ShowWordCount = false
+  ShowToc = false
+  UseHugoToc = true
+  ShowBreadCrumbs = true # To show breadcrumbs navigation above single post/page
+  hideSummary = false # To hide summary being shown in list pages
+  searchHidden = false # To hide page from search
+  ShowPostNavLinks = false # To show next and previous post links
+
+[menu]
+  [[menu.main]]
+    name = "Introduction"
+    pageRef = "/introduction/"
+    weight = 1
+  [[menu.main]]
+    name = "Articles"
+    identifier = "articles"
+    pageRef = "/articles/"
+    weight = 2
+# [[menu.main]]
+#   name = "Quickstart"
+#   pageRef = "/quickstart/"
+#   weight = 3
+# [[menu.main]]
+#   name = "References"
+#   pageRef = "/references/"
+#   weight = 4
