@@ -18,13 +18,13 @@ In this third part of the series, we'll explore how to handle lifecycle events a
 
 The core of your operator is the **Reconcile loop**. This function is responsible for checking the current state of your custom resource and performing actions to move it toward the desired state.
 
-Open the <a href="https://github.com/mariobris/demo-operator" target="_blank" rel="noopener noreferrer" style="color:blue;">demo operator</a> example and locate the `Reconcile` method. Within this method, you can add logic such as:
+Open the `internal/controller/magicaloperator_controller.go` and locate the `Reconcile` method. Within this method, you can add logic such as:
 
 - Check if the deployment exists; create it if it doesn't
 - Update replicas if the specification has changed
 - Log actions for observability and debugging
 
-**For this demonstration**, the reconciliation process creates Kubernetes events and logs messages to stdout when a `MagicalOperator` resource is created, updated, or deleted.
+**For this demonstration**, the <a href="https://github.com/mariobris/operator-sdk-demo/blob/master/internal/controller/magicaloperator_controller.go" target="_blank" rel="noopener noreferrer" style="color:blue;">reconciliation process</a> creates Kubernetes events and logs messages to stdout when a `MagicalOperator` resource is created, updated, or deleted. To create events, don't forget to add a recorder to the <a href="chttps://github.com/mariobris/operator-sdk-demo/blob/master/cmd/main.go#L150" target="_blank" rel="noopener noreferrer" style="color:blue;">MagicalOperatorReconciler controller</a>.
 
 **Important principle:** Each reconciliation should be **idempotent** — it should safely retry and produce the same result regardless of how many times it's executed.
 
@@ -38,6 +38,7 @@ Ensure you have appropriate RBAC permissions defined in `config/rbac/role.yaml`.
 // +kubebuilder:rbac:groups=wizards.hogwarts.com,resources=magicaloperators,verbs=get;list;watch;create;update;patch;delete
 // +kubebuilder:rbac:groups=wizards.hogwarts.com,resources=magicaloperators/status,verbs=get;update;patch
 // +kubebuilder:rbac:groups=wizards.hogwarts.com,resources=magicaloperators/finalizers,verbs=update
+// +kubebuilder:rbac:groups="",resources=events,verbs=create;patch
 ```
 
 Don't forget to run `make manifests` after making changes and check the `rbac` directory for updated files.
