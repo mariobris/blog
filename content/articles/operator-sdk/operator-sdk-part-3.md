@@ -24,7 +24,7 @@ Open the `internal/controller/magicaloperator_controller.go` and locate the `Rec
 - Update replicas if the specification has changed
 - Log actions for observability and debugging
 
-**For this demonstration**, the <a href="https://github.com/mariobris/operator-sdk-demo/blob/master/internal/controller/magicaloperator_controller.go" target="_blank" rel="noopener noreferrer" style="color:blue;">reconciliation process</a> creates Kubernetes events and logs messages to stdout when a `MagicalOperator` resource is created, updated, or deleted. To create events, don't forget to add a recorder to the <a href="chttps://github.com/mariobris/operator-sdk-demo/blob/master/cmd/main.go#L150" target="_blank" rel="noopener noreferrer" style="color:blue;">MagicalOperatorReconciler controller</a>.
+**For this demonstration**, the <a href="https://github.com/mariobris/operator-sdk-demo/blob/master/internal/controller/magicaloperator_controller.go" target="_blank" rel="noopener noreferrer" style="color:blue;">reconciliation process</a> creates Kubernetes events and logs messages to stdout when a `MagicalOperator` resource is created, updated, or deleted. To create events, don't forget to add a recorder to the <a href="https://github.com/mariobris/operator-sdk-demo/blob/master/cmd/main.go#L150" target="_blank" rel="noopener noreferrer" style="color:blue;">MagicalOperatorReconciler controller</a>.
 
 **Important principle:** Each reconciliation should be **idempotent** — it should safely retry and produce the same result regardless of how many times it's executed.
 
