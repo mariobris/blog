@@ -12,7 +12,7 @@ cover:
 draft: false
 ---
 
-## 🔄 Managing Lifecycle Events
+## Managing Lifecycle Events
 
 In this third part of the series, we'll explore how to handle lifecycle events and deploy your Kubernetes operator built with the Operator SDK to a real cluster.
 
@@ -30,7 +30,7 @@ Open the `internal/controller/magicaloperator_controller.go` and locate the `Rec
 
 ---
 
-## 🔐 RBAC Permissions
+## RBAC Permissions
 
 Ensure you have appropriate RBAC permissions defined in `config/rbac/role.yaml`. This is handled automatically by Kubebuilder, and you can find the relevant `markers` in the controller code. For example:
 
@@ -47,7 +47,7 @@ Don't forget to run `make manifests` after making changes and check the `rbac` d
 
 ---
 
-## 🚀 Deploy to Kubernetes
+## Deploy to Kubernetes
 
 Deployment to Kubernetes uses <a href="https://kustomize.io/" target="_blank" rel="noopener noreferrer" style="color:blue;">Kustomize</a> files in the `config` directory. For example, the target namespace and name prefix can be customized in `config/default/kustomization.yaml`.
 
@@ -86,7 +86,7 @@ NAME                                                READY   STATUS    RESTARTS  
 demo-operator-controller-manager-6dd47d7df8-f5jkn   1/1     Running   0          12s
 ```
 
-### 🧹 Cleanup (Optional)
+### Cleanup (Optional)
 
 When you're done experimenting, you can clean up the resources:
 
@@ -98,11 +98,11 @@ This removes all the resources created by the operator from your cluster.
 
 ---
 
-## 🎉 Conclusion
+## Conclusion
 
 You've now completed a foundational journey through creating, deploying, and managing a custom Kubernetes operator using the Operator SDK. From understanding the concepts to implementing lifecycle handling and cluster deployment, you're now equipped with the knowledge to build production-ready operators!
 
-### ✅ Best Practices for Operator Development
+### Best Practices for Operator Development
 
 - **Use Fine-Grained RBAC** — Only grant permissions your operator truly needs. Avoid wildcards unless absolutely necessary.
 - **Keep CRDs Clean** — Avoid bloating the CRD with unnecessary fields. Document `spec` fields clearly with meaningful descriptions.
@@ -111,14 +111,14 @@ You've now completed a foundational journey through creating, deploying, and man
 - **Test Locally First** — Always test your operator locally before deploying to a cluster.
 - **Version Control** — Commit changes at each step to track your progress and understand what each command does.
 
-### 🤔 Key Questions to Consider
+### Key Questions to Consider
 
 When developing operators, always ask yourself:
 
 - **Should I use a ConfigMap or a custom resource?** This is well explained in the <a href="https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#should-i-use-a-configmap-or-a-custom-resource" target="_blank" rel="noopener noreferrer" style="color:blue;">official Kubernetes documentation</a>.
 - **Which custom resource approach should I use?** Consider <a href="https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#adding-custom-resources" target="_blank" rel="noopener noreferrer" style="color:blue;">CRDs vs API Aggregation</a>. This tutorial focuses on CRDs, which are simpler and can be created without extensive programming.
 
-### 🚀 Next Steps
+### Next Steps
 
 Now that you've mastered the basics, consider exploring:
 - **Advanced Controller Patterns** — Finalizers, webhooks, and complex reconciliation logic
@@ -128,4 +128,4 @@ Now that you've mastered the basics, consider exploring:
 
 ---
 
-Happy automating! 🚀
+Happy automating!

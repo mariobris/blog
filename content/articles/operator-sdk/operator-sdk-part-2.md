@@ -13,7 +13,7 @@ draft: false
 ShowPostNavLinks: true
 ---
 
-## 🧱 Building Your First Operator
+## Building Your First Operator
 
 Now that you understand the fundamentals of Kubernetes and the Operator SDK, let's walk through the process of creating your first custom operator.
 
@@ -23,7 +23,7 @@ This guide assumes you have `operator-sdk`, `kubectl`, and a Kubernetes cluster 
 
 ---
 
-### 🔧 Step 1: Install the Operator SDK
+### Step 1: Install the Operator SDK
 
 Follow the latest installation instructions on the <a href="https://sdk.operatorframework.io/docs/installation/" target="_blank" rel="noopener noreferrer" style="color:blue;">official installation page</a>.
 
@@ -35,7 +35,7 @@ brew install operator-sdk
 
 ---
 
-### 🗂 Step 2: Scaffold Your Project
+### Step 2: Scaffold Your Project
 
 Use the Operator SDK CLI to create a new operator project:
 
@@ -133,7 +133,7 @@ This scaffolding provides the foundation for building a custom Kubernetes operat
 
 ---
 
-### 🧬 Step 3: Update the CRD Schema
+### Step 3: Update the CRD Schema
 
 Open the generated `api/v1alpha1/magicaloperator_types.go` and `config/samples/wizards_v1alpha1_magicaloperator.yaml` files in your IDE side by side to define the structure of your custom resource.
 
@@ -201,7 +201,7 @@ Not too difficult, right?
 
 ---
 
-## 🚀 Step 4: Run the Operator Locally
+## Step 4: Run the Operator Locally
 
 **Terminal 1:** Start the controller
 
@@ -226,7 +226,7 @@ magicaloperator-sample   113s
 
 ---
 
-## 🚀 What's Next
+## What's Next
 
 You've successfully scaffolded and run your first custom Kubernetes operator using the Operator SDK! Your operator is now responding to resource changes locally. In the next part, we'll explore how to implement more sophisticated controller logic to handle resource lifecycle events and deploy your operator to a real Kubernetes cluster for production use.
 

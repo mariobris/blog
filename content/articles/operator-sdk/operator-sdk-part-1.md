@@ -18,7 +18,7 @@ draft: false
 ShowPostNavLinks: true
 ---
 
-## 🤖 What Is a Kubernetes Operator?
+## What Is a Kubernetes Operator?
 
 Kubernetes Operators are a powerful way to automate the ongoing operational tasks involved in running complex applications on Kubernetes.
 
@@ -33,11 +33,11 @@ Operators enable you to automate critical tasks such as:
 
 Operators are particularly valuable for managing **stateful, distributed applications** (such as databases, caches, and message queues), where orchestration requires more sophisticated logic than simple YAML deployment. They enable teams to codify deep operational knowledge into software that runs within the cluster and responds to real-world conditions — just as a human operator would.
 
-## 🛠 Getting Started with Operator SDK
+## Getting Started with Operator SDK
 
 In this guide, you'll learn how to build a functional Kubernetes operator from scratch using the <a href="https://sdk.operatorframework.io/" target="_blank" rel="noopener noreferrer" style="color:blue;">Operator SDK</a>. This tutorial focuses on helping you understand the essential building blocks and minimal coding required to get a basic operator up and running. While other tools like Kubebuilder exist, we use Operator SDK for its widespread adoption and ease of use.
 
-### 🔍 Why Choose Operator SDK?
+### Why Choose Operator SDK?
 
 The Operator SDK is a framework that is part of the <a href="https://landscape.cncf.io/" target="_blank" rel="noopener noreferrer" style="color:blue;">CNCF Landscape</a>, which showcases a wide range of cloud-native projects. It leverages the controller-runtime library to streamline operator development by providing:
 
@@ -50,7 +50,7 @@ With Operator SDK, you can create robust, production-grade operators more effici
 
 ---
 
-## 📚 Essential Concepts to Review
+## Essential Concepts to Review
 
 Before diving into development, it's recommended to review the following Kubernetes concepts, as this guide will not cover low-level Kubernetes details:
 
@@ -74,7 +74,7 @@ Before diving into development, it's recommended to review the following Kuberne
 
 ---
 
-## 📦 Understanding CRDs and API Resources
+## Understanding CRDs and API Resources
 
 **Custom Resource Definition (CRD):** A mechanism for extending Kubernetes by defining new resource types. It's essentially a way to tell Kubernetes about a new kind of object it should understand — for example, while Kubernetes natively knows about Pods and Services, a CRD allows you to add your own resource types, such as "MyDatabase".
 
@@ -232,10 +232,10 @@ FIELDS:
 
 This complexity might lead you to ask: **"How can I create CRDs correctly without making mistakes?"**
 
-💡 **Excellent news:** You don't need to handle this manually — the Operator SDK framework handles the heavy lifting for you!
+**Excellent news:** You don't need to handle this manually — the Operator SDK framework handles the heavy lifting for you!
 
 ---
 
-## 🚀 What's Next
+## What's Next
 
 Now that you have a solid understanding of the Operator SDK and relevant Kubernetes concepts, you're ready to proceed to the practical implementation in the next section!
