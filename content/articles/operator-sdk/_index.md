@@ -1,5 +1,5 @@
 ---
-title: "📘 Kubernetes Operator SDK Tutorial Series"
+title: "Kubernetes Operator SDK Tutorial Series"
 date: 2025-06-06
 weight: 1
 layout: single
@@ -18,11 +18,11 @@ Welcome to this beginner-friendly tutorial series on building Kubernetes Operato
 
 Each article includes practical, hands-on steps, curated resources, and industry best practices designed to help you progress from beginner to confident operator developer. **Basic Go programming experience is recommended.**
 
-Happy learning! 🚀
+Happy learning!
 
 ---
 
-## 📚 Articles in This Series
+## Articles in This Series
 
 1. <a href="./operator-sdk-part-1/" target="_blank" rel="noopener noreferrer" style="color:blue;">Getting Started with Operator SDK</a> — Understanding the fundamentals and key concepts
 1. <a href="./operator-sdk-part-2/" target="_blank" rel="noopener noreferrer" style="color:blue;">Building Your First Operator with Operator SDK</a> — Hands-on development and scaffolding
