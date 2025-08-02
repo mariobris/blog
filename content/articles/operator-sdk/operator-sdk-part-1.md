@@ -1,6 +1,6 @@
 ---
 title: "Getting Started with Operator SDK"
-date: 2025-06-07
+date: 2025-06-06
 weight: 1
 menu:
   main:

@@ -1,6 +1,6 @@
 ---
 title: "Managing Lifecycle and Deployment in Your Operator"
-date: 2025-06-09
+date: 2025-06-06
 weight: 3
 menu:
   main:
