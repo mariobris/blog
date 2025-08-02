@@ -30,7 +30,7 @@ helm upgrade -i crossplane \
   crossplane-stable/crossplane
 
 # Set the context to crossplane-system namespace
-kubectl config set-context --namespace crossplane-system --current
+kubectl config set-context --namespace default --current
 ```
 
 Verify the installation:
@@ -114,6 +114,11 @@ Check the status:
 ```bash
 kubectl get bucket
 kubectl describe bucket my-test-bucket-12345
+```
+
+Check created S3 connection details
+```bash
+kubectl get -n default secrets
 ```
 
 **Note:** This example uses the `provider-aws-s3` family provider, which provides specialized S3 functionality.
