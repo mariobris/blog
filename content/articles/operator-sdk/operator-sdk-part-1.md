@@ -1,7 +1,7 @@
 ---
 title: "Getting Started with Operator SDK"
 date: 2025-06-07
-weight: 2
+weight: 1
 menu:
   main:
     parent: "articles"

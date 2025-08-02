@@ -1,7 +1,7 @@
 ---
 title: "Managing Lifecycle and Deployment in Your Operator"
 date: 2025-06-09
-weight: 4
+weight: 3
 menu:
   main:
     parent: "articles"

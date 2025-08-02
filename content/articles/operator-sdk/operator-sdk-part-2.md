@@ -1,7 +1,7 @@
 ---
 title: "Building Your First Operator with Operator SDK"
 date: 2025-06-08
-weight: 3
+weight: 2
 menu:
   main:
     parent: "articles"
