@@ -1,7 +1,7 @@
 ---
 title: "Kubernetes Operator SDK Tutorial Series"
 date: 2025-06-06
-weight: 1
+# weight: 1
 layout: single
 menu:
   main:

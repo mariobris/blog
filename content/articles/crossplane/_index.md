@@ -1,7 +1,7 @@
 ---
 title: "Kubernetes Crossplane Tutorial Series"
 date: 2025-08-02
-weight: 10
+# weight: 10
 layout: single
 menu:
   main:
