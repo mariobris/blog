@@ -1,7 +1,7 @@
 ---
 title: "Getting Started with Crossplane"
 date: 2025-08-02
-weight: 1
+weight: 11
 menu:
   main:
     parent: "articles"

@@ -1,7 +1,7 @@
 ---
 title: "Compositions and Composite Resources"
 date: 2025-08-02
-weight: 3
+weight: 13
 menu:
   main:
     parent: "articles"
