@@ -279,14 +279,6 @@ kubectl get events --sort-by='.lastTimestamp' -n crossplane-system
 
 **Why:** Check resource status, get detailed error messages, and monitor events for troubleshooting.
 
-## What's Next?
-
-In the next article, we'll explore:
-- Compositions and composite resources
-- Building reusable infrastructure templates
-- Cross-resource references
-- Advanced resource patterns
-
 ## Additional Resources
 
 - <a href="https://github.com/mariobris/crossplane-demo" target="_blank" rel="noopener noreferrer" style="color:blue;">Crossplane Demo Repository</a> - Contains all the YAML files used in this tutorial

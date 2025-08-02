@@ -189,21 +189,6 @@ kubectl describe function <function-name>
 3. **Network Policies**: Restrict network access to Crossplane components
 4. **Audit Logging**: Enable audit logs for compliance
 
-## What's Next?
-
-This concludes our Crossplane tutorial series! You now have a solid foundation in:
-
-- Understanding Crossplane concepts and architecture
-- Working with providers and managed resources
-- Building compositions and composite resources
-- Troubleshooting common issues
-
-To continue your Crossplane journey, explore the additional resources below and consider diving into advanced topics like:
-- Production deployment strategies
-- Multi-cloud infrastructure management
-- Advanced composition patterns
-- Crossplane community resources
-
 ## Additional Resources
 
 - <a href="https://docs.crossplane.io/latest/concepts/compositions/" target="_blank" rel="noopener noreferrer" style="color:blue;">Compositions Documentation</a>
