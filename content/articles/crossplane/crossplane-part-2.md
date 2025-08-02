@@ -116,9 +116,9 @@ kubectl get bucket
 kubectl describe bucket my-test-bucket-12345
 ```
 
-Check created S3 connection details
+Check created S3 connection details as secret in `crossplane-system` namespace:
 ```bash
-kubectl get -n default secrets
+kubectl get -n crossplane-system secrets
 ```
 
 **Note:** This example uses the `provider-aws-s3` family provider, which provides specialized S3 functionality.
@@ -149,6 +149,21 @@ Delete resources:
 
 ```bash
 kubectl delete -f manifests/simple/
+```
+
+## Helm templating
+
+Simple manifess can be deployed with kustomize or helm. I will deploy the same resources with helm now.
+
+```
+helm upgrade -i -n defautl simple manifests/helm/
+```
+
+Observe resources and review <a href="https://github.com/mariobris/crossplane-demo/blob/main/manifests/helm/values.yaml" target="_blank" rel="noopener noreferrer" style="color:blue;">values.yaml</a>.
+
+Delete resources:
+```
+helm un simple
 ```
 
 ## Resource Dependencies

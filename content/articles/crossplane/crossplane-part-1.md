@@ -72,7 +72,7 @@ Common connection details include:
 - Resource ARNs and IDs
 - Network endpoints and ports
 
-Example: S3 bucket connection details <a href="https://github.com/mariobris/crossplane-demo/blob/main/manifests/simple/s3.yaml" target="_blank" rel="noopener noreferrer" style="color:blue;">s3.yaml</a>
+Example: S3 bucket connection details at the bottom of <a href="https://github.com/mariobris/crossplane-demo/blob/main/manifests/simple/s3.yaml" target="_blank" rel="noopener noreferrer" style="color:blue;">s3.yaml</a> file.
 
 ### How Connection Details Work
 
