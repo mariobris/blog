@@ -1,7 +1,7 @@
 ---
 title: "Kubernetes Crossplane Tutorial Series"
 date: 2025-08-02
-# weight: 10
+weight: 10
 layout: single
 menu:
   main:
@@ -24,6 +24,10 @@ Happy learning!
 
 ## Articles in This Series
 
-1. <a href="./crossplane-part-1/" target="_blank" rel="noopener noreferrer" style="color:blue;">Getting Started with Crossplane</a> — UUnderstanding the fundamentals and installation
+1. [Getting Started with Crossplane](./crossplane-part-1/) — Understanding the fundamentals and installation
+2. [Working with Providers and Managed Resources](./crossplane-part-2/) — AWS provider setup, resource management, and troubleshooting
+3. [Compositions and Composite Resources](./crossplane-part-3/) — Building reusable infrastructure templates
+
+<!-- 1. <a href="./crossplane-part-1/" target="_blank" rel="noopener noreferrer" style="color:blue;">Getting Started with Crossplane</a> — UUnderstanding the fundamentals and installation
 1. <a href="./crossplane-part-2/" target="_blank" rel="noopener noreferrer" style="color:blue;">Working with Providers and Managed Resources</a> — AWS provider setup, resource management, and troubleshooting
-1. <a href="./crossplane-part-3/" target="_blank" rel="noopener noreferrer" style="color:blue;">Compositions and Composite Resources</a> — Building reusable infrastructure templates
+1. <a href="./crossplane-part-3/" target="_blank" rel="noopener noreferrer" style="color:blue;">Compositions and Composite Resources</a> — Building reusable infrastructure templates -->
