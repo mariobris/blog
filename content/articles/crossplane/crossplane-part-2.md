@@ -113,12 +113,6 @@ Check the status:
 
 ```bash
 kubectl get bucket
-kubectl describe bucket my-test-bucket-12345
-```
-
-Check created S3 connection details as secret in `crossplane-system` namespace:
-```bash
-kubectl get -n crossplane-system secrets
 ```
 
 **Note:** This example uses the `provider-aws-s3` family provider, which provides specialized S3 functionality.
@@ -142,7 +136,7 @@ I will list the secrets containing connection details. The secret is visible in 
 
 ```bash
 kubectl get bucket
-kubectl get secrets
+kubectl get -n crossplane-system secrets
 ```
 
 Delete resources:
