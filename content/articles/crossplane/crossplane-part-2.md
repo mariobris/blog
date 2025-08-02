@@ -1,7 +1,7 @@
 ---
 title: "Working with Providers and Managed Resources"
 date: 2025-08-02
-weight: 1
+weight: 2
 menu:
   main:
     parent: "articles"
