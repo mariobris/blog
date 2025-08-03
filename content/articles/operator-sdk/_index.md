@@ -24,6 +24,6 @@ Happy learning!
 
 ## Articles in This Series
 
-1. <a href="./operator-sdk-part-1/" target="_blank" rel="noopener noreferrer" style="color:blue;">Getting Started with Operator SDK</a> — Understanding the fundamentals and key concepts
-1. <a href="./operator-sdk-part-2/" target="_blank" rel="noopener noreferrer" style="color:blue;">Building Your First Operator with Operator SDK</a> — Hands-on development and scaffolding
-1. <a href="./operator-sdk-part-3/" target="_blank" rel="noopener noreferrer" style="color:blue;">Managing Lifecycle and Deployment in Your Operator</a> — Advanced lifecycle management and cluster deployment
+1. [Getting Started with Operator SDK](./operator-sdk-part-1/) — Understanding the fundamentals and key concepts
+1. [Building Your First Operator with Operator SDK](./operator-sdk-part-2/) — Hands-on development and scaffolding
+1. [Managing Lifecycle and Deployment in Your Operator](./operator-sdk-part-3/) — Advanced lifecycle management and cluster deployment

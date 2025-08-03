@@ -60,6 +60,11 @@ kubectl apply -f provider-aws.yaml
 
 The <a href="https://github.com/mariobris/crossplane-demo/blob/main/provider-aws.yaml" target="_blank" rel="noopener noreferrer" style="color:blue;">provider-aws.yaml</a> file defines the AWS family providers needed for this demo. It includes separate providers for S3, EC2, and IAM. Each provider manages only its specific AWS service, which helps keep things simple and focused.
 
+Check installed API resources
+```
+kubectl api-resources --categories=crossplane
+```
+
 ## Provider Configuration
 
 To allow the AWS family providers to communicate with AWS services, I must configure authentication. This is done using a ProviderConfig resource, which tells the providers how to authenticate with AWS.
