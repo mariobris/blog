@@ -55,7 +55,7 @@ Functions can be used to:
 - Generate dynamic values
 - Implement complex business logic
 
-To install the Crossplane function named **function-patch-and-transform**, I'll apply the  <a href="https://github.com/mariobris/crossplane-demo/blob/main/functions.yaml" target="_blank" rel="noopener noreferrer" style="color:blue;">function configuration YAML</a>.
+To install the Crossplane function named **function-patch-and-transform**, I'll apply the  <a href="https://github.com/mariobris/crossplane-demo/blob/main/functions.yaml" target="_blank" rel="noopener noreferrer" style="color:blue;">functions.yaml</a>.
 
 ```bash
 kubectl apply -f functions.yaml
@@ -94,19 +94,27 @@ Crossplane supports simulation mode to preview changes before applying them—si
 I will create a simple web application infrastructure composition that includes:
 - VPC
 - Subnet
-- Security Groups
 - EC2 Instance
+- S3 bucket
 
 ```bash
 # VPC and subnets
-kubectl apply -f manifests/x/network/composite.yaml
+kubectl apply -f manifests/x/network/xrd.yaml
 kubectl apply -f manifests/x/network/composition.yaml
-# Compute and SGs
-kubectl apply -f manifests/x/compute/composite.yaml
+# Compute and S3
+kubectl apply -f manifests/x/compute/xrd.yaml
 kubectl apply -f manifests/x/compute/composition.yaml
 ```
 
-## Claims and Namespace-Scoped Resources
+Then I will check the resources
+```bash
+# XRDs
+kubectl get xrd
+# compositions
+kubectl get compositions
+```
+
+## Claims
 
 Claims provide namespace-scoped access to composite resources, making them ideal for end users like developers.
 
@@ -117,10 +125,30 @@ Claims provide namespace-scoped access to composite resources, making them ideal
 - **RBAC Integration**: Leverage Kubernetes RBAC for access control
 - **Self-Service**: Enable developers to provision infrastructure safely
 
-I'll apply the composition claim
+I'll first apply the composition claim for network
 ```bash
 kubectl apply -f manifests/x/network/claim.yaml
-kubectl apply -f manifests/x/compute/claim.yaml
+```
+
+and validate state
+```bash
+# composite
+kubectl get xnetwork
+# claim
+kubectl get network
+```
+
+and once network is `SYNCED` and `READY` then claim for compute
+```bash
+kubectl apply -f manifests/x/compute/claim-x.yaml
+```
+
+and validate state
+```bash
+# composite
+kubectl get xcompute
+# claim
+kubectl get compute
 ```
 
 ## Troubleshooting Compositions

@@ -89,7 +89,7 @@ When you create a managed resource with connection details configured, Crossplan
 - **Audit Trail**: All access is logged through Kubernetes
 - **RBAC**: Leverage Kubernetes RBAC for access control
 
-## Komoplane (UI Tool)
+## Komoplane
 
 Once you have Kubernetes running and Crossplane installed, you can use a web UI called <a href="https://github.com/komodorio/komoplane" target="_blank" rel="noopener noreferrer" style="color:blue;">Komoplane</a> to visualize your Crossplane resources.
 

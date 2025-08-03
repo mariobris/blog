@@ -120,6 +120,8 @@ Check the status:
 kubectl get bucket
 ```
 
+I can see that the bucket is `SYNCED` and `READY`. If it's not then follow troubleshooting section.
+
 **Note:** This example uses the `provider-aws-s3` family provider, which provides specialized S3 functionality.
 
 ### Creating Multiple Resources
@@ -134,14 +136,13 @@ Observe resources:
 
 ```bash
 kubectl get managed
-kubectl get vpc,subnets,instance,instancestate,bucket
 ```
 
-I will list the secrets containing connection details. The secret is visible in the bucket managed resource.
+I will list the secret containing connection details for S3 bucket.
 
 ```bash
 kubectl get bucket
-kubectl get -n crossplane-system secrets
+kubectl get secrets -n crossplane-system --field-selector type=connection.crossplane.io/v1alpha1
 ```
 
 Delete resources:
@@ -155,14 +156,14 @@ kubectl delete -f manifests/simple/
 Simple manifess can be deployed with kustomize or helm. I will deploy the same resources with helm now.
 
 ```
-helm upgrade -i -n defautl simple manifests/helm/
+helm upgrade -i -n default simple manifests/helm/
 ```
 
 Observe resources and review <a href="https://github.com/mariobris/crossplane-demo/blob/main/manifests/helm/values.yaml" target="_blank" rel="noopener noreferrer" style="color:blue;">values.yaml</a>.
 
 Delete resources:
 ```
-helm un simple
+helm uninstall -n default simple
 ```
 
 ## Resource Dependencies
@@ -246,28 +247,33 @@ Organize resources by environment or project using namespaces or labels.
 
 When working with Crossplane, you may encounter various issues. Here's a systematic approach to diagnose and resolve common problems:
 
-### 1. Check Provider Status
+### 1. Komoplane
+
+See the [komplane section](part-1.md#komplane)
+
+### 2. Check Provider Status
 
 First, verify that your providers are properly installed and healthy:
 
 ```bash
-kubectl get provider
-kubectl describe provider <provider-name>
+kubectl get -n crossplane-system provider
+kubectl describe -n crossplane-system provider <provider-name>
 ```
 
 **Why:** Providers must be healthy for Crossplane to manage external resources. If a provider is not ready, resource creation will fail.
 
-### 2. View Provider Logs
+### 3. View Provider Logs
 
 Check provider logs for detailed error messages:
 
 ```bash
-kubectl logs -n crossplane-system <provider-name>
+kubectl get -n crossplane-system pods
+kubectl logs -n crossplane-system <pod-name>
 ```
 
 **Why:** Provider logs contain detailed information about authentication failures, API errors, and resource creation issues.
 
-### 3. Monitor Resource Status
+### 4. Monitor Resource Status
 
 Check the status of your managed resources:
 
@@ -276,10 +282,10 @@ Check the status of your managed resources:
 kubectl get managed
 
 # Check specific resource status
-kubectl describe managed <resource-name>
+kubectl describe <manged-resource-name>
 
 # Check resource events
-kubectl get events --sort-by='.lastTimestamp' -n crossplane-system
+kubectl get events --sort-by='.lastTimestamp' -A
 ```
 
 **Why:** Check resource status, get detailed error messages, and monitor events for troubleshooting.
