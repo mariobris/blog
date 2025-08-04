@@ -229,7 +229,7 @@ For a better development experience when working with compositions and XRDs, I r
 - XRD openAPIv3Schema validation
 
 
-## Additional Resources
+## Resources
 
 - <a href="https://docs.crossplane.io/latest/concepts/compositions/" target="_blank" rel="noopener noreferrer" style="color:blue;">Compositions Documentation</a>
 - <a href="https://docs.crossplane.io/latest/concepts/composite-resources/" target="_blank" rel="noopener noreferrer" style="color:blue;">Composite Resources Guide</a>

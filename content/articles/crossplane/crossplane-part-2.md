@@ -14,9 +14,9 @@ ShowPostNavLinks: true
 
 ## Installation
 
-I will use k3s for this demo. Follow the <a href="https://docs.k3s.io/quick-start#install-script" target="_blank" rel="noopener noreferrer" style="color:blue;">official installation guide</a> to install k3s.
+I will use k3s for this demo and follow the <a href="https://docs.k3s.io/quick-start#install-script" target="_blank" rel="noopener noreferrer" style="color:blue;">official installation guide</a>.
 
-I will install Crossplane in my Kubernetes cluster (k3s):
+I will install Crossplane in newly Kubernetes cluster:
 
 ```bash
 # Add the Crossplane Helm repository
@@ -58,7 +58,7 @@ Then apply the AWS family providers:
 kubectl apply -f provider-aws.yaml
 ```
 
-The <a href="https://github.com/mariobris/crossplane-demo/blob/main/provider-aws.yaml" target="_blank" rel="noopener noreferrer" style="color:blue;">provider-aws.yaml</a> file defines the AWS family providers needed for this demo. It includes separate providers for S3, EC2, and IAM. Each provider manages only its specific AWS service, which helps keep things simple and focused.
+The <a href="https://github.com/mariobris/crossplane-demo/blob/main/provider-aws.yaml" target="_blank" rel="noopener noreferrer" style="color:blue;">provider-aws.yaml</a> file defines the AWS family providers needed for this demo. It includes separate providers for S3 and EC2. Each provider manages only its specific AWS service, which helps keep things simple and focused.
 
 Check installed API resources:
 
@@ -72,7 +72,7 @@ To allow the AWS family providers to communicate with AWS services, I must confi
 
 ### AWS Authentication Setup
 
-**Note:** I need valid AWS credentials with sufficient permissions to work with AWS resources. For this demo, I'm using an admin role with full access to AWS services.
+**Note:** I need valid AWS credentials with sufficient permissions to work with AWS resources. For this demo, I'm using an IAM User with with full access to AWS services.
 
 1. Create AWS credentials file:
 
@@ -98,7 +98,6 @@ kubectl create secret generic aws-creds \
 kubectl apply -f providerConfig.yaml
 ```
 
-**Note:** This provider configuration is shared across all AWS family providers (S3, EC2, IAM, etc.).
 
 ## Working with Managed Resources
 
@@ -108,7 +107,7 @@ Managed resources represent external cloud services as Kubernetes objects. Let's
 
 I will create a simple S3 bucket to test the setup using the AWS S3 family provider. I can find the example manifest <a href="https://github.com/mariobris/crossplane-demo/blob/main/manifests/simple/s3.yaml" target="_blank" rel="noopener noreferrer" style="color:blue;">here</a>.
 
-**Important:** S3 bucket names must be globally unique. Before applying the manifest, I'll open <a href="https://github.com/mariobris/crossplane-demo/blob/main/manifests/simple/s3.yaml" target="_blank" rel="noopener noreferrer" style="color:blue;">manifests/simple/s3.yaml</a> and change the `Name` field of the resource to a unique value that is not already used by anyone else.
+**Important:** S3 bucket names must be globally unique in AWS. Before applying the manifest, I'll open <a href="https://github.com/mariobris/crossplane-demo/blob/main/manifests/simple/s3.yaml" target="_blank" rel="noopener noreferrer" style="color:blue;">s3.yaml</a> and change the `Name` field of the resource to a unique value that is not already used by anyone else.
 
 Apply the manifest:
 ```bash
@@ -255,7 +254,7 @@ When working with Crossplane, you may encounter various issues. Here's a systema
 
 ### 1. Komoplane
 
-See the [Komoplane section](./crossplane-part-1.md#komoplane)
+See the [Komoplane section](../crossplane-part-1.md#komoplane)
 
 ### 2. Check Provider Status
 
@@ -266,8 +265,6 @@ kubectl get -n crossplane-system provider
 kubectl describe -n crossplane-system provider <provider-name>
 ```
 
-**Why:** Providers must be healthy for Crossplane to manage external resources. If a provider is not ready, resource creation will fail.
-
 ### 3. View Provider Logs
 
 Check provider logs for detailed error messages:
@@ -276,8 +273,6 @@ Check provider logs for detailed error messages:
 kubectl get -n crossplane-system pods
 kubectl logs -n crossplane-system <pod-name>
 ```
-
-**Why:** Provider logs contain detailed information about authentication failures, API errors, and resource creation issues.
 
 ### 4. Monitor Resource Status
 
@@ -294,8 +289,6 @@ kubectl describe <managed-resource-name>
 kubectl get events --sort-by='.lastTimestamp' -A
 ```
 
-**Why:** Check resource status, get detailed error messages, and monitor events for troubleshooting.
-
-## Additional Resources
+## Resources
 
 - <a href="https://github.com/mariobris/crossplane-demo" target="_blank" rel="noopener noreferrer" style="color:blue;">Crossplane Demo Repository</a> - Contains all the YAML files used in this tutorial

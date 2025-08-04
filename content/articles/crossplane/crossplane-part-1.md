@@ -115,12 +115,10 @@ To use Komoplane from your local machine (Linux):
    ./komoplane
    ```
 
-Komoplane will start a local web server for you to access the UI in your browser.
-
 5. Access the UI: Open `http://localhost:8090` in your browser
 
 
-## Additional Resources
+## Resources
 
 - <a href="https://docs.crossplane.io/latest/concepts/" target="_blank" rel="noopener noreferrer" style="color:blue;">Crossplane Concepts Documentation</a>
 - <a href="https://docs.crossplane.io/latest/getting-started/install-configure/" target="_blank" rel="noopener noreferrer" style="color:blue;">Installation Guide</a>
