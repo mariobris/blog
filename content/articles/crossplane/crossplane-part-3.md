@@ -234,6 +234,7 @@ For a better development experience when working with compositions and XRDs, I r
 - <a href="https://docs.upbound.io/operate/simulations/" target="_blank" rel="noopener noreferrer" style="color:blue;">Simulation Guide</a>
 - <a href="https://github.com/upbound/vscode-up" target="_blank" rel="noopener noreferrer" style="color:blue;">VS Code Extension</a>
 - <a href="https://marketplace.upbound.io/configurations" target="_blank" rel="noopener noreferrer" style="color:blue;">Configurations Marketplace</a>
+- <a href="https://docs.crossplane.io/v2.0-preview/whats-new/" target="_blank" rel="noopener noreferrer" style="color:blue;">What's new in V2</a>
 
 
 ## Conclusion
