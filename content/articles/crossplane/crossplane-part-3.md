@@ -91,7 +91,7 @@ Crossplane supports simulation mode to preview changes before applying them—si
 
 ## Building Your First Composition
 
-I will create a simple web application infrastructure composition that includes:
+I will create a simple application infrastructure composition that includes:
 - VPC
 - Subnet
 - EC2 Instance
@@ -169,9 +169,9 @@ kubectl get xrd
 kubectl describe xrd <xrd-name>
 ```
 
-**Why:** XRDs define the API for composite resources. If XRD is not ready, you cannot create composite resources or claims.
+**Why:** XRDs define the API for composite resources. If XRD is not `ESTABLISHED` and `OFFERED`, you cannot create composite resources or claims.
 
-### 2. Verify Composition Status
+### 2. Verify Composition
 
 Check that your compositions are properly configured:
 
@@ -179,8 +179,6 @@ Check that your compositions are properly configured:
 kubectl get composition
 kubectl describe composition <composition-name>
 ```
-
-**Why:** Compositions define how resources are created. If composition is not ready, composite resources cannot be created.
 
 ### 3. Monitor Composite Resources
 
@@ -213,18 +211,15 @@ kubectl get function
 kubectl describe function <function-name>
 ```
 
-**Why:** Functions process composition logic. If a function is not ready, compositions may fail to create resources.
+**Why:** Functions process composition logic. If a function is not ready, compositions may fail to patch resource and create resources.
 
 
 ## Development Tools
 
 For a better development experience when working with compositions and XRDs, I recommend installing the <a href="https://github.com/upbound/vscode-up" target="_blank" rel="noopener noreferrer" style="color:blue;">VS Code Extension for Crossplane</a>. This extension provides diagnostics as you work through its integration with xpls:
 
-- Crossplane.yaml dependency version validation
-- Crossplane.yaml dependency type validation
-- Crossplane.yaml dependency missing validation
+- `Crossplane.yaml` dependency version validation, type validation and missing validation
 - XRC schema validation
-- Composed resource schema validation
 - Composed resource schema validation with patched details
 - XRD openAPIv3Schema validation
 
