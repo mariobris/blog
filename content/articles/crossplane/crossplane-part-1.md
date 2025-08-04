@@ -116,7 +116,8 @@ To use Komoplane from your local machine (Linux):
 
 Komoplane will start a local web server for you to access the UI in your browser.
 
-4. Access the UI: Open `http://localhost:8090` in your browser
+5. Access the UI: Open `http://localhost:8090` in your browser
+
 
 ## Additional Resources
 

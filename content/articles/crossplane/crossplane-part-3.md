@@ -15,10 +15,10 @@ ShowPostNavLinks: true
 
 ## Core Concepts
 
-- **Compositions** - A template to define how to create resources. "Similar to terraform modules" (quoted).
-- **Composite Resource Definition (XRD)** - A custom k8s API specification. "Similar to CRD, e.g. deployment" (quoted).
-- **Composite Resource (XR)** - Created by using the custom API defined in a Composite Resource Definition. XRs use the Composition template to create new managed resources.
-- **Claims (XRC)** - Like a Composite Resource, but with namespace scoping. Useful for end users, e.g. developers
+- **Compositions** - A template to define how to create resources (similar to Terraform modules)
+- **Composite Resource Definition (XRD)** - A custom Kubernetes API specification (similar to CRD, e.g., Deployment)
+- **Composite Resource (XR)** - Created by using the custom API defined in a Composite Resource Definition. XRs use the Composition template to create new managed resources
+- **Claims (XRC)** - Like a Composite Resource, but with namespace scoping. Useful for end users, e.g., developers
 - **Functions** - Crossplane extensions that template resources and allow custom logic during composition
 
 ### Composition
@@ -55,7 +55,7 @@ Functions can be used to:
 - Generate dynamic values
 - Implement complex business logic
 
-To install the Crossplane function named **function-patch-and-transform**, I'll apply the  <a href="https://github.com/mariobris/crossplane-demo/blob/main/functions.yaml" target="_blank" rel="noopener noreferrer" style="color:blue;">functions.yaml</a>.
+To install the Crossplane function named **function-patch-and-transform**, I'll apply the <a href="https://github.com/mariobris/crossplane-demo/blob/main/functions.yaml" target="_blank" rel="noopener noreferrer" style="color:blue;">functions.yaml</a>:
 
 ```bash
 kubectl apply -f functions.yaml
@@ -106,11 +106,12 @@ kubectl apply -f manifests/x/compute/xrd.yaml
 kubectl apply -f manifests/x/compute/composition.yaml
 ```
 
-Then I will check the resources
+Then I will check the resources:
+
 ```bash
 # XRDs
 kubectl get xrd
-# compositions
+# Compositions
 kubectl get compositions
 ```
 
@@ -125,29 +126,33 @@ Claims provide namespace-scoped access to composite resources, making them ideal
 - **RBAC Integration**: Leverage Kubernetes RBAC for access control
 - **Self-Service**: Enable developers to provision infrastructure safely
 
-I'll first apply the composition claim for network
+I'll first apply the composition claim for network:
+
 ```bash
 kubectl apply -f manifests/x/network/claim.yaml
 ```
 
-and validate state
+And validate the state:
+
 ```bash
-# composite
+# Composite
 kubectl get xnetwork
-# claim
+# Claim
 kubectl get network
 ```
 
-and once network is `SYNCED` and `READY` then claim for compute
+Once the network is `SYNCED` and `READY`, then I will apply claim for compute:
+
 ```bash
 kubectl apply -f manifests/x/compute/claim-x.yaml
 ```
 
-and validate state
+And validate the state:
+
 ```bash
-# composite
+# Composite
 kubectl get xcompute
-# claim
+# Claim
 kubectl get compute
 ```
 
@@ -210,12 +215,18 @@ kubectl describe function <function-name>
 
 **Why:** Functions process composition logic. If a function is not ready, compositions may fail to create resources.
 
-## Best Practices for Production
+## Development Tools
 
-1. **RBAC Configuration**: Implement proper role-based access control
-2. **Secret Management**: Secure sensitive configuration
-3. **Network Policies**: Restrict network access to Crossplane components
-4. **Audit Logging**: Enable audit logs for compliance
+For a better development experience when working with compositions and XRDs, I recommend installing the <a href="https://github.com/upbound/vscode-up" target="_blank" rel="noopener noreferrer" style="color:blue;">VS Code Extension for Crossplane</a>. This extension provides diagnostics as you work through its integration with xpls:
+
+- Crossplane.yaml dependency version validation
+- Crossplane.yaml dependency type validation
+- Crossplane.yaml dependency missing validation
+- XRC schema validation
+- Composed resource schema validation
+- Composed resource schema validation with patched details
+- XRD openAPIv3Schema validation
+
 
 ## Additional Resources
 
@@ -225,3 +236,19 @@ kubectl describe function <function-name>
 - <a href="https://docs.crossplane.io/latest/concepts/functions/" target="_blank" rel="noopener noreferrer" style="color:blue;">Functions Guide</a>
 - <a href="https://docs.crossplane.io/latest/concepts/functions/" target="_blank" rel="noopener noreferrer" style="color:blue;">Functions Documentation</a>
 - <a href="https://docs.upbound.io/operate/simulations/" target="_blank" rel="noopener noreferrer" style="color:blue;">Simulation Guide</a>
+- <a href="https://github.com/upbound/vscode-up" target="_blank" rel="noopener noreferrer" style="color:blue;">VS Code Extension</a>
+
+
+## Conclusion
+
+Throughout this tutorial series, I've demonstrated how Crossplane enables you to manage cloud infrastructure using Kubernetes-native APIs. You've learned to install providers, create managed resources, build compositions, and implement claims for self-service infrastructure.
+
+Crossplane provides several key security advantages:
+
+**Kubernetes RBAC Integration**: Leverage existing Kubernetes role-based access control to manage who can create, modify, or delete infrastructure resources. This eliminates the need for separate IAM policies and provides fine-grained access control.
+
+**Secret Management**: Crossplane automatically stores sensitive connection details in Kubernetes secrets, ensuring credentials are encrypted at rest and follow Kubernetes security best practices. This prevents credential sprawl and centralizes secret management.
+
+**Audit Trail**: All infrastructure changes are logged through Kubernetes audit logs, providing comprehensive visibility into who made changes, when, and what resources were affected. This enables compliance and security monitoring.
+
+Crossplane excels in environments where you're already heavily invested in Kubernetes and want to extend that ecosystem to infrastructure management.

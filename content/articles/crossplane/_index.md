@@ -16,7 +16,9 @@ ShowPostNavLinks: true
 
 Welcome to this comprehensive tutorial series on <a href="https://www.crossplane.io/" target="_blank" rel="noopener noreferrer" style="color:blue;">Crossplane</a>, the cloud-native control plane for infrastructure management. This guide will take you through everything from understanding the fundamentals to deploying and managing cloud resources across multiple providers.
 
-Each article includes practical, hands-on steps, curated resources, and industry best practices designed to help you progress from beginner to confident Crossplane developer. **Basic Kubernetes experience is recommended.**
+Each article includes practical, hands-on steps, curated resources, and industry best practices. This series will help you progress from beginner to confident Crossplane developer.
+
+**Basic Kubernetes experience is recommended.** If you're new to Kubernetes operators, I recommend reading the [Kubernetes Operator SDK tutorial series](../operator-sdk/) first.
 
 Happy learning!
 

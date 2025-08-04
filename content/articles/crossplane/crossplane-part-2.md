@@ -60,8 +60,9 @@ kubectl apply -f provider-aws.yaml
 
 The <a href="https://github.com/mariobris/crossplane-demo/blob/main/provider-aws.yaml" target="_blank" rel="noopener noreferrer" style="color:blue;">provider-aws.yaml</a> file defines the AWS family providers needed for this demo. It includes separate providers for S3, EC2, and IAM. Each provider manages only its specific AWS service, which helps keep things simple and focused.
 
-Check installed API resources
-```
+Check installed API resources:
+
+```bash
 kubectl api-resources --categories=crossplane
 ```
 
@@ -120,7 +121,7 @@ Check the status:
 kubectl get bucket
 ```
 
-I can see that the bucket is `SYNCED` and `READY`. If it's not then follow troubleshooting section.
+I can see that the bucket is `SYNCED` and `READY`. If it's not, then follow the [troubleshooting section](#troubleshooting).
 
 **Note:** This example uses the `provider-aws-s3` family provider, which provides specialized S3 functionality.
 
@@ -138,7 +139,7 @@ Observe resources:
 kubectl get managed
 ```
 
-I will list the secret containing connection details for S3 bucket.
+I will list the secrets containing connection details for the S3 bucket:
 
 ```bash
 kubectl get bucket
@@ -151,18 +152,23 @@ Delete resources:
 kubectl delete -f manifests/simple/
 ```
 
-## Helm templating
+## Helm Templating
 
-Simple manifess can be deployed with kustomize or helm. I will deploy the same resources with helm now.
+Simple manifests can be deployed with Kustomize or Helm. I will deploy the same resources with Helm now:
 
-```
+```bash
 helm upgrade -i -n default simple manifests/helm/
 ```
 
-Observe resources and review <a href="https://github.com/mariobris/crossplane-demo/blob/main/manifests/helm/values.yaml" target="_blank" rel="noopener noreferrer" style="color:blue;">values.yaml</a>.
+Observe the created resources and review the <a href="https://github.com/mariobris/crossplane-demo/blob/main/manifests/helm/values.yaml" target="_blank" rel="noopener noreferrer" style="color:blue;">values.yaml</a> file:
+
+```bash
+kubectl get managed
+```
 
 Delete resources:
-```
+
+```bash
 helm uninstall -n default simple
 ```
 
@@ -220,7 +226,7 @@ spec:
 
 ### Resource Naming
 
-Use consistent kubernetes naming conventions:
+Use consistent Kubernetes naming conventions:
 
 ```yaml
 metadata:
@@ -249,7 +255,7 @@ When working with Crossplane, you may encounter various issues. Here's a systema
 
 ### 1. Komoplane
 
-See the [komplane section](part-1.md#komplane)
+See the [Komoplane section](./crossplane-part-1.md#komoplane)
 
 ### 2. Check Provider Status
 
@@ -282,7 +288,7 @@ Check the status of your managed resources:
 kubectl get managed
 
 # Check specific resource status
-kubectl describe <manged-resource-name>
+kubectl describe <managed-resource-name>
 
 # Check resource events
 kubectl get events --sort-by='.lastTimestamp' -A
