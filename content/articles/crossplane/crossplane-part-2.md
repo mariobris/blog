@@ -254,7 +254,7 @@ When working with Crossplane, you may encounter various issues. Here's a systema
 
 ### 1. Komoplane
 
-See the [Komoplane section](../crossplane-part-1.md#komoplane)
+See the [Komoplane section](../crossplane-part-1#komoplane)
 
 ### 2. Check Provider Status
 
