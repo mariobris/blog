@@ -215,6 +215,7 @@ kubectl describe function <function-name>
 
 **Why:** Functions process composition logic. If a function is not ready, compositions may fail to create resources.
 
+
 ## Development Tools
 
 For a better development experience when working with compositions and XRDs, I recommend installing the <a href="https://github.com/upbound/vscode-up" target="_blank" rel="noopener noreferrer" style="color:blue;">VS Code Extension for Crossplane</a>. This extension provides diagnostics as you work through its integration with xpls:
@@ -237,6 +238,7 @@ For a better development experience when working with compositions and XRDs, I r
 - <a href="https://docs.crossplane.io/latest/concepts/functions/" target="_blank" rel="noopener noreferrer" style="color:blue;">Functions Documentation</a>
 - <a href="https://docs.upbound.io/operate/simulations/" target="_blank" rel="noopener noreferrer" style="color:blue;">Simulation Guide</a>
 - <a href="https://github.com/upbound/vscode-up" target="_blank" rel="noopener noreferrer" style="color:blue;">VS Code Extension</a>
+- <a href="https://marketplace.upbound.io/configurations" target="_blank" rel="noopener noreferrer" style="color:blue;">Configurations Marketplace</a>
 
 
 ## Conclusion
