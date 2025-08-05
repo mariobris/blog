@@ -66,6 +66,12 @@ Check installed API resources:
 kubectl api-resources --categories=crossplane
 ```
 
+Investigate the `VPC` resrource specification:
+
+```bash
+kubectl explain vpc.spec.forProvider
+```
+
 ## Provider Configuration
 
 To allow the AWS family providers to communicate with AWS services, I must configure authentication. This is done using a ProviderConfig resource, which tells the providers how to authenticate with AWS.

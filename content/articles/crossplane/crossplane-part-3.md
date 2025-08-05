@@ -106,13 +106,15 @@ kubectl apply -f manifests/x/compute/xrd.yaml
 kubectl apply -f manifests/x/compute/composition.yaml
 ```
 
-Then I will check the resources:
+Then I will check the resources and API specification:
 
 ```bash
 # XRDs
 kubectl get xrd
 # Compositions
 kubectl get compositions
+# Compute spec
+kubectl explain compute.spec
 ```
 
 ## Claims
